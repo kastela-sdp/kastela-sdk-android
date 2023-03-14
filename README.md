@@ -24,7 +24,7 @@ repositories {
 ```
 dependencies {
   ...
-  implementation 'id.hash.kastela:kastela-sdk-android:0.1.0'
+  implementation 'id.hash.kastela:kastela-sdk-android:0.2.0'
   ...
 }
 ```
