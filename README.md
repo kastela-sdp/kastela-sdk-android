@@ -13,8 +13,8 @@
   ...
   <dependency>
     <groupId>id.hash.kastela</groupId>
-    <artifactId>kastela-sdk-java</artifactId>
-    <version>0.4.1</version> 
+    <artifactId>kastela-sdk-android</artifactId>
+    <version>0.1.0</version> 
   </dependency>
   ...
 </dependencies>
