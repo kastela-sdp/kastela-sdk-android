@@ -1,15 +1,12 @@
-package com.hash.app;
+package id.hash.kastela;
 
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
-import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.util.Base64;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import com.github.zafarkhaja.semver.Version;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.iwebpp.crypto.TweetNaclFast;
@@ -22,8 +19,6 @@ import okhttp3.Response;
 import okhttp3.Request.Builder;
 
 public class Client {
-  private String expectedKastelaVersion = "0.2";
-
   private OkHttpClient httpClient;
   private String kastelaUrl;
 
@@ -35,22 +30,17 @@ public class Client {
 
     this.kastelaUrl = kastelaUrl;
 
-    // httpClient = HttpClient.newBuilder().build();
     httpClient = new OkHttpClient();
   }
 
   private Map<String, Object> request(String method, String url, Object body, Boolean CheckHeaders)
       throws Exception {
-    // HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().uri(url);
     Builder requestBuilder = new Request.Builder().url(url);
 
-    // BodyPublisher requestBody = BodyPublishers.noBody();
 
     RequestBody reqBody = RequestBody.create("", JSON);
     if (body != null) {
       reqBody = RequestBody.create(gson.toJson(body), JSON);
-      // requestBody = BodyPublishers.ofByteArray((byte[]) body);
-      // requestBuilder.header("Content-Type", "application/json");
     }
 
     switch (method) {
@@ -71,15 +61,6 @@ public class Client {
     }
     Request request = requestBuilder.build();
     Response response = httpClient.newCall(request).execute();
-    if (CheckHeaders) {
-      Map<String, List<String>> headers = response.headers().toMultimap();
-      String actualVersion = headers.get("x-kastela-version").get(0).substring(1);
-      Version v = Version.valueOf(actualVersion);
-      if (!v.satisfies(expectedKastelaVersion.concat("| 0.0.0"))) {
-        throw new Exception("kastela server version mismatch, expeced: v".concat(expectedKastelaVersion)
-            .concat(".x, actual: v").concat(actualVersion));
-      }
-    }
     if (response.code() != 200) {
       throw new Exception(response.body().toString());
     }

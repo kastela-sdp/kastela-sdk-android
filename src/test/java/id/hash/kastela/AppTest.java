@@ -1,4 +1,4 @@
-package com.hash.app;
+package id.hash.kastela;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -11,13 +11,13 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class App {
+public class AppTest {
     private static Gson gson = new Gson();
 
     public static void main(String[] args) throws Exception {
         HttpClient httpClient = HttpClient.newBuilder().build();
 
-        String[] ids = new String[] { "30f6a056-bc47-40eb-98d6-9d518975037b" };
+        String[] ids = new String[] { "45597d20-2dc5-4246-af6e-7d0a62528f3c" };
         String[][] data = new String[][] { new String[] { "disyam@hash.id" } };
 
         Map<String, Object> rawBody = new HashMap<>();
