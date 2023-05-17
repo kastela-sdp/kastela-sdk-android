@@ -6,7 +6,7 @@
 
   <groupId>id.hash.kastela</groupId>
   <artifactId>kastela-sdk-android</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
 
   <name>kastela-sdk-android</name>
   <!-- FIXME change it to the project's website -->
