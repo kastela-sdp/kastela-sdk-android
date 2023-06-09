@@ -89,9 +89,11 @@ public class Client {
         false);
 
     int x = 0;
-    int y = 0;
+    System.out.println(values.length);
     String[][] fullTexts = new String[values.length][];
     for (Object[] value : values) {
+      int y = 0;
+      System.out.println(value.length);
       if (fullTexts[x] == null) {
         fullTexts[x] = new String[value.length];
       }
@@ -111,6 +113,7 @@ public class Client {
         buff.put(nonce);
         buff.put(cipherText);
         byte[] fullText = buff.array();
+        System.out.println(Integer.toString(x) + Integer.toString(y));
         fullTexts[x][y] = new String(Base64.getEncoder().encode(fullText));
         y++;
       }
@@ -150,9 +153,9 @@ public class Client {
         false);
 
     int x = 0;
-    int y = 0;
     String[][] fullTexts = new String[values.length][];
     for (Object[] value : values) {
+      int y = 0;
       if (fullTexts[x] == null) {
         fullTexts[x] = new String[value.length];
       }
@@ -219,9 +222,9 @@ public class Client {
         : null;
 
     int x = 0;
-    int y = 0;
     Object[][] values = new Object[fullTexts.size()][];
     for (Object valueRaw : fullTexts) {
+      int y = 0;
       ArrayList<?> value = valueRaw instanceof ArrayList<?> ? (ArrayList<?>) valueRaw : null;
       if (values[x] == null) {
         values[x] = new Object[value.size()];
@@ -282,9 +285,9 @@ public class Client {
         : null;
 
     int x = 0;
-    int y = 0;
     Object[][] values = new Object[fullTexts.size()][];
     for (Object valueRaw : fullTexts) {
+      int y = 0;
       ArrayList<?> value = valueRaw instanceof ArrayList<?> ? (ArrayList<?>) valueRaw : null;
       if (values[x] == null) {
         values[x] = new Object[value.size()];
