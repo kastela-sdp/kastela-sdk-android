@@ -89,11 +89,9 @@ public class Client {
         false);
 
     int x = 0;
-    System.out.println(values.length);
     String[][] fullTexts = new String[values.length][];
     for (Object[] value : values) {
       int y = 0;
-      System.out.println(value.length);
       if (fullTexts[x] == null) {
         fullTexts[x] = new String[value.length];
       }
@@ -113,7 +111,6 @@ public class Client {
         buff.put(nonce);
         buff.put(cipherText);
         byte[] fullText = buff.array();
-        System.out.println(Integer.toString(x) + Integer.toString(y));
         fullTexts[x][y] = new String(Base64.getEncoder().encode(fullText));
         y++;
       }
